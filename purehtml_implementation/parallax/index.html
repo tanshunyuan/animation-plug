@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./main.css" />
     <title>Document</title>
   </head>
 
@@ -12,7 +12,14 @@
     <section>
       <ul>
         <li class="scroll" data-rate="-2">me</li>
-        <li>me</li>
+        <li
+          class="scroll"
+          data-direction="horizontal"
+          data-rateX="2"
+          data-rateY="1"
+        >
+          me
+        </li>
         <li class="scroll" data-rate="2">thangs</li>
       </ul>
       <div
@@ -30,17 +37,23 @@
       const scrollItems = document.querySelectorAll('.scroll');
       const scrolledY = window.pageYOffset;
       const scrolledX = window.pageXOffset;
-      scrollItems.forEach((item) => {
-        const offsetPositionY = scrolledY * item.dataset.rate;
-        const offsetPositionX = scrolledX * item.dataset.rate;
-        if (item.dataset.direction === 'horizontal') {
-            const posX = window.pageYOffset * item.dataset.ratex
-            const posY = window.pageYOffset * item.dataset.ratey
-          item.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
-        } else {
-          item.style.transform = `translateY(${offsetPositionY}px)`;
-        }
-      });
+      if (scrolledY < window.innerHeight && scrolledX < window.innerWidth) {
+        scrollItems.forEach((item) => {
+          item.style.display = 'block';
+          const offsetPositionY = scrolledY * item.dataset.rate;
+          if (item.dataset.direction === 'horizontal') {
+            // for posX using pageYOffset is needed because the 
+            // Yoffset is changing
+            const posX = window.pageYOffset * item.dataset.ratex;
+            const posY = window.pageYOffset * item.dataset.ratey;
+            item.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
+          } else {
+            item.style.transform = `translate3d(0,${offsetPositionY}px, 0)`;
+          }
+        });
+      } else {
+        scrollItems.forEach((item) => (item.style.display = 'none'));
+      }
     });
   </script>
 </html>
