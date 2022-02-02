@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./main.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="#" class="logo">Logo</a>
+      <ul>
+        <li><a class="active" href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Work</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <section>
+      <img src="./assets/stars.png" alt="stars" id="stars" />
+      <img src="./assets/moon.png" alt="moon" id="moon" />
+      <img
+        src="./assets/mountains_behind.png"
+        alt="mountains_behind"
+        id="mountains_behind"
+      />
+      <h2 id="text">Moon Light</h2>
+      <button id="btn">Explore</button>
+      <img
+        src="./assets/mountains_front.png"
+        alt="mountains_front"
+        id="mountains_front"
+      />
+    </section>
+    <div class="words">
+      <h2>Parallax scrolling effects</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem omnis
+        ut, maxime perferendis id optio tempora debitis non, illum eius nulla
+        est tenetur pariatur architecto, nesciunt consequuntur aspernatur
+        facilis nobis!
+      </p>
+      <br />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem omnis
+        ut, maxime perferendis id optio tempora debitis non, illum eius nulla
+        est tenetur pariatur architecto, nesciunt consequuntur aspernatur
+        facilis nobis!
+      </p>
+      <br />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem omnis
+        ut, maxime perferendis id optio tempora debitis non, illum eius nulla
+        est tenetur pariatur architecto, nesciunt consequuntur aspernatur
+        facilis nobis!
+      </p>
+      <br />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem omnis
+        ut, maxime perferendis id optio tempora debitis non, illum eius nulla
+        est tenetur pariatur architecto, nesciunt consequuntur aspernatur
+        facilis nobis!
+      </p>
+      <br />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem omnis
+        ut, maxime perferendis id optio tempora debitis non, illum eius nulla
+        est tenetur pariatur architecto, nesciunt consequuntur aspernatur
+        facilis nobis!
+      </p>
+      <br />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem omnis
+        ut, maxime perferendis id optio tempora debitis non, illum eius nulla
+        est tenetur pariatur architecto, nesciunt consequuntur aspernatur
+        facilis nobis!
+      </p>
+      <br />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem omnis
+        ut, maxime perferendis id optio tempora debitis non, illum eius nulla
+        est tenetur pariatur architecto, nesciunt consequuntur aspernatur
+        facilis nobis!
+      </p>
+      <br />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem omnis
+        ut, maxime perferendis id optio tempora debitis non, illum eius nulla
+        est tenetur pariatur architecto, nesciunt consequuntur aspernatur
+        facilis nobis!
+      </p>
+      <br />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem omnis
+        ut, maxime perferendis id optio tempora debitis non, illum eius nulla
+        est tenetur pariatur architecto, nesciunt consequuntur aspernatur
+        facilis nobis!
+      </p>
+      <br />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem omnis
+        ut, maxime perferendis id optio tempora debitis non, illum eius nulla
+        est tenetur pariatur architecto, nesciunt consequuntur aspernatur
+        facilis nobis!
+      </p>
+      <br />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem omnis
+        ut, maxime perferendis id optio tempora debitis non, illum eius nulla
+        est tenetur pariatur architecto, nesciunt consequuntur aspernatur
+        facilis nobis!
+      </p>
+      <br />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem omnis
+        ut, maxime perferendis id optio tempora debitis non, illum eius nulla
+        est tenetur pariatur architecto, nesciunt consequuntur aspernatur
+        facilis nobis!
+      </p>
+      <br />
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem omnis
+        ut, maxime perferendis id optio tempora debitis non, illum eius nulla
+        est tenetur pariatur architecto, nesciunt consequuntur aspernatur
+        facilis nobis!
+      </p>
+    </div>
+
+    <script>
+      const stars = document.getElementById('stars');
+      const moon = document.getElementById('moon');
+      const mountains_behind = document.getElementById('mountains_behind');
+      const mountains_front = document.getElementById('mountains_front');
+      const text = document.getElementById('text');
+      const btn = document.getElementById('btn');
+      window.addEventListener('scroll', () => {
+        const scrollY = window.pageYOffset;
+        stars.style.left = `${scrollY * 0.25}px`;
+        moon.style.top = `${scrollY * 1.05}px`;
+        mountains_behind.style.top = `${scrollY * 0.5}px`;
+        mountains_front.style.top = `${scrollY * 0}px`;
+        text.style.transform = `translate3d(-${scrollY * 4}px,${scrollY}px,0)`;
+        btn.style.marginTop = `${scrollY * 1.5}px`;
+      });
+    </script>
+  </body>
+</html>
