@@ -5,20 +5,18 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 const Parallax = () => {
   const [elementTop, setElementTop] = useState(0);
   const ref = useRef(null);
-  const { scrollY } = useViewportScroll();
-  const y1 = useTransform(scrollY, [elementTop, elementTop + 1], [0, -1], {
-    clamp: false,
-  });
-  const y2 = useTransform(scrollY, [elementTop, elementTop + 1], [0, 2], {
-    clamp: false,
-  });
+  const { scrollYProgress } = useViewportScroll();
+  const y1 = useTransform(scrollYProgress, [0, 0.5, 1], [0, 200, 300]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, 400]);
 
   useLayoutEffect(() => {
     const element = ref.current;
-    setElementTop(element.offsetTop);
+    if (element !== null) {
+      setElementTop(element.offsetTop);
+    }
   }, [ref]);
   return (
-    <Container ref={ref}>
+    <Container>
       <Ul>
         <Li style={{ y: y1 }}>par</Li>
         <Li>al</Li>
